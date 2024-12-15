@@ -8,19 +8,28 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import pe.idat.quickpool.R
 import pe.idat.quickpool.databinding.ActivityLoginBinding
+import pe.idat.quickpool.db.entity.ClienteEntity
 import pe.idat.quickpool.retrofit.response.ResponseLogin
 import pe.idat.quickpool.utilitarios.AppMensaje
 import pe.idat.quickpool.utilitarios.TipoMensaje
 import pe.idat.quickpool.viewmodel.AuthViewModel
+import pe.idat.quickpool.viewmodel.ClienteViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
+
     private lateinit var binding: ActivityLoginBinding
     private lateinit var authViewModel: AuthViewModel
+    private lateinit var clienteViewModel: ClienteViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+
+        clienteViewModel = ViewModelProvider(this).get(ClienteViewModel::class.java)
+        clienteViewModel.eliminartodo()
+
         binding.btnlogin.setOnClickListener(this)
         binding.btnregistrar.setOnClickListener(this)
         authViewModel.responseLogin.observe(
@@ -32,6 +41,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun obtenerDatosLogin(responseLogin: ResponseLogin) {
         if (responseLogin.succes){
+
+            val nuevoCliente = ClienteEntity(
+                responseLogin.idCliente.toInt(),
+                responseLogin.nombres,
+                responseLogin.apellidos,
+                responseLogin.email,
+                responseLogin.celular,
+                responseLogin.usuario,
+                responseLogin.password)
+            clienteViewModel.insertar(nuevoCliente)
+
             startActivity(Intent(applicationContext, HomeActivity::class.java))
         }else{
             AppMensaje.mensaje(binding.root, responseLogin.message, TipoMensaje.ERROR)
