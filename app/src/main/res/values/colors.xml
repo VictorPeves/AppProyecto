@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_secundario">#733DF1</color>
+    <color name="color_secundario_variant">#510DEF</color>
+    <color name="color_gris">#DFDFDF</color>
+    <color name="color_gris_500">#9E9E9E</color>
+    <color name="snackbarerror">#EF0000</color>
+    <color name="snackbarexito">#165497</color>
+    <color name="snackbaradvertencia">#165497</color>
+
+    <color name="snackerror">#DB0000</color>
+    <color name="snackadvertencia">#DC8F35</color>
+    <color name="snackinfo">#0C56DF</color>
+    <color name="snackcorrecto">#2E6C07</color>
+</resources>
