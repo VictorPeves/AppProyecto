@@ -53,6 +53,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             clienteViewModel.insertar(nuevoCliente)
 
             startActivity(Intent(applicationContext, HomeActivity::class.java))
+            finish()
         }else{
             AppMensaje.mensaje(binding.root, responseLogin.message, TipoMensaje.ERROR)
         }
