@@ -11,6 +11,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/valtitulologin"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -24,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:textColorHint="@color/color_gris_500"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,8 @@
             android:id="@+id/etpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/valetpassword" />
+            android:hint="@string/valetpassword"
+            android:inputType="text|textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -72,7 +74,7 @@
 
     <Button
         android:id="@+id/btnlogin"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/valbtnlogin"
@@ -82,7 +84,7 @@
 
     <Button
         android:id="@+id/btnregistrar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/valbtnregistrar"
