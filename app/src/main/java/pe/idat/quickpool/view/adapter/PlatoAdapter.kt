@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import pe.idat.quickpool.databinding.ItemPlatoBinding
+import pe.idat.quickpool.retrofit.response.ResponsePedido
 import pe.idat.quickpool.retrofit.response.ResponsePlato
 
 class PlatoAdapter(
-    private var listaPlato: List<ResponsePlato>)
-    : RecyclerView.Adapter<PlatoAdapter.ViewHolder>()
-{
+    private var listaPlato: List<ResponsePlato>) : RecyclerView.Adapter<PlatoAdapter.ViewHolder>() {
+
+    val carritocompras = mutableListOf<ResponsePedido>()
+
     inner class ViewHolder(val binding: ItemPlatoBinding)
         :RecyclerView.ViewHolder(binding.root)
 
